@@ -1,0 +1,52 @@
+﻿@{
+    ViewBag.Title = "Usuario";
+    ViewBag.Title = "Adicionar";
+}
+@section scripts{
+    <script type="text/javascript" src="~/Scripts/bootstrap-datepicker.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#input02').datepicker();
+        });
+    </script>
+
+}
+
+ <style>
+    .datepicker {
+        /* Appended to body, abs-pos off the page */
+        position: absolute;
+        display: none;
+        top: -9999em;
+        left: -9999em;
+    }
+</style>
+<form action="#" class="form-horizontal well">
+  <fieldset>
+    <legend>Novo Usuario</legend>
+    <div class="control-group">
+      <label class="control-label" for="input01">Nome</label>
+      <div class="controls">
+        <input type="text" class="input-xlarge" id="input01" />
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="input01">Data Nascimento</label>
+      <div class="controls">
+        <input class="date" id="input02" size="16" type="text" value="12-02-2012" />
+	  </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="input01">Tipo</label>
+      <div class="controls">
+        <input type="text" class="input-xlarge" id="input03">
+      </div>
+    </div>
+    <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Guardar</button>
+            <button type="reset" class="btn">Cancelar</button>
+    </div>
+  </fieldset>
+</form>
+
+    

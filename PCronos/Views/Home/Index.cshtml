@@ -1,0 +1,139 @@
+﻿@model PCronos.Models.LocalPasswordModel
+
+@{
+    ViewBag.Title = "Usuarios";
+    ViewBag.SubTitle = "Pesquisa";
+}
+
+@section scripts{
+    <script type="text/javascript" src="~/Scripts/bootstrap-datepicker.js"></script>
+    <script src="~/Scripts/bootstrap-combobox.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.date').datepicker();
+        });
+        $(document).ready(function () {
+            $('.combobox').combobox();
+        });
+    </script>
+}
+@section subnav
+{
+    
+    <div class="subnav">
+        <ul class="nav nav-pills">
+            <li><a data-toggle="modal" href="#addModal">Adicionar</a></li>
+            <li class="navbar-search pull-right">
+                <form action="/" method="post">
+                    <div>
+                        <input type="text" id="Form_Search" name="Search" value="" placeholder="Pesquisar"
+                            class="InputBox" />
+                        <input type="submit" id="Form_Go" value="Go" class="Button" />
+                    </div>
+                </form>
+            </li>
+        </ul>
+    </div>
+    <br />
+}
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span9">
+            <ul class="nav nav-tabs">
+                <li class="active">
+                    <a href="#">Todos</a>
+                </li>
+                <li><a href="#">Compradores</a></li>
+                <li><a href="#">Fornecedores</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active" id="tab1">
+                     <table class="table table-striped table-condensed">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Nome</th>
+                                <th>Data Ativação</th>
+                                <th>Data Destivação</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td><a>Nuno Miguel</a></td>
+                                <td>21-01-2012</td>
+                                <td></td>
+                                <td style="text-align:right" ></i><i class="icon-edit"></i><i class="icon-remove"></i></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="pagination pagination-right">
+                        <ul>
+                            <li><a href="#">«</a></li>
+                            <li><a>1</a></li>
+                            <li><a>2</a></li>
+                            <li><a>3</a></li>
+                            <li class="active"><a>4</a></li>
+                            <li><a>»</a></li>
+                        </ul>
+                    </div>
+                </div>
+                    
+                    
+                
+            </div>
+        </div>
+        <div class="span3" >
+            <div class="BoxFilter">
+                <h4>Tipo</h4>
+                <ul class="FilterOptions">
+                    <li><strong><a>Compradores</a></strong><span class="aside badge">1</span></li>
+                    <li><strong><a>Fornecedores</a></strong><span class="aside badge">1</span></li>
+                    <li class="active"><strong><a>Todos</a></strong><span class="aside badge">1</span></li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="modal hide" id="addModal">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">×</button>
+    <h3>Adicionar Usuario</h3>
+  </div>
+  <div class="modal-body">
+    <form action="#" class="form-horizontal">
+      <fieldset>
+        <div class="control-group">
+          <label class="control-label" for="input01">Nome</label>
+          <div class="controls">
+            <input type="text" class="input-xlarge" id="input01"/>
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label" for="input01">Data</label>
+          <div class="controls">
+            <input type="text" class="input-xlarge date" id="input02" />
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label" for="input01">Tipo</label>
+          <div class="controls">
+            <select class="input-xlarge combobox" id="input03" >
+                <option>Comprador</option>
+                <option>Pessoa</option>
+            </select>
+          </div>
+        </div>
+        
+        @Html.FormLineEditorFor(c => c.NewPassword);
+      </fieldset>
+    </form> 
+  </div>
+  <div class="modal-footer">
+    <a href="#" class="btn" data-dismiss="modal">Close</a>
+    <a href="#" class="btn btn-primary">Save changes</a>
+  </div>
+</div>
